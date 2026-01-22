@@ -12,14 +12,19 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <h1 class="text-center">Email list</h1>
-    <div class="d-flex flex-column align-items-center">
+    <div class="bg-title">
+        <h1 class="text-center">Email list</h1>
+    </div>
+    
+    <div class="container-fluid d-flex flex-column align-items-center bg-mail-list-section">
         <div class="alert alert-warning w-50 text-center" id="loading">Loading...</div>
         <div class="alert alert-danger w-50 text-center d-none" id="error"></div>
-        <button id = "new-email-list">generate new email list</button>
-        <ul class="d-none" id="emails-list">
+        <div class="align-self-end mb-4">
+            <button class="btn btn-primary  btn-new-list" id = "new-email-list">generate new email list</button>
+        </div>
+        <div class="d-none list-group w-75 emails-list-container" id="emails-list">
 
-        </ul>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 

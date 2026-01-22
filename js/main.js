@@ -21,7 +21,9 @@ newListButton.addEventListener('click', () => {
 
 function emailGenerator(){
         axios.get("https://flynn.boolean.careers/exercises/api/random/mail")
-            .then((response) => { emailsContainer.innerHTML += `<li>${response.data.response}</li>`})
+            .then((response) => { 
+                const mail = response.data.response;
+                emailsContainer.innerHTML += `<a class="list-group-item list-group-item-action" href = 'mailto: ${mail}'>${mail}</a>`})
              .catch((error) => {
                 alertError.innerText = error.message;
                 alertError.classList.remove('d-none');
