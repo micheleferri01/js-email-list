@@ -1,15 +1,15 @@
 const alertError = document.getElementById('error');
 const loadingAlert = document.getElementById('loading');
-const emailsList = emailGenerator();
+const emailsContainer = document.getElementById('emails-list');
+let email = emailsContainer.innerHTML;
 
-
-
+for (let i = 0; i < 10; i++){
+    emailGenerator();
+}
 
 function emailGenerator(){
-    const emails = [];
-    for(let i=0; i < 10; i++){
         axios.get("https://flynn.boolean.careers/exercises/api/random/mail")
-             .then((response) =>{emails.push(response.data.response)})
+            .then((response) => { emailsContainer.innerHTML += `<li>${response.data.response}</li>`})
              .catch((error) => {
                 alertError.innerText = error.message;
                 alertError.classList.remove('d-none');
@@ -17,6 +17,4 @@ function emailGenerator(){
              .finally(() => {
                 loadingAlert.classList.add('d-none');
              })
-    }
-    return emails;
 }
